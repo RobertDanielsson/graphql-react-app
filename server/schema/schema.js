@@ -116,6 +116,7 @@ const Mutation = new GraphQLObjectType({
                     genre: args.genre,
                     authorId: args.authorId
                 });
+                
                 return book.save();
             }
         }
