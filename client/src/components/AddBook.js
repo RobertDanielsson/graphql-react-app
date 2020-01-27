@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useQuery, useMutation } from '@apollo/react-hooks'
 import { getAuthorsQuery, addBookMutation, getBooksQuery } from '../queries/queries'
 
@@ -8,7 +8,7 @@ export default function Addbook() {
     const [authorId, setAuthorId] = useState(null);
 
     const { loading, data } = useQuery(getAuthorsQuery);
-    
+
     const [saveBook, { error }] = useMutation(addBookMutation, {
         variables: { name, genre, authorId }, refetchQueries: [{query: getBooksQuery}]
     });
